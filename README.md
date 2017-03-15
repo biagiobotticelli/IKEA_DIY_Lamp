@@ -1,7 +1,7 @@
 # IKEA PS 2014 DIY Lamp
 During a visit in an IKEA store, I saw the PS 2014 lamp.
 <p align="center">
-  <img ![alt tag](http://www.ikea.com/us/en/images/products/ikea-ps-pendant-lamp__0366384_PE548623_S4.JPG) />
+  ![alt tag](http://www.ikea.com/us/en/images/products/ikea-ps-pendant-lamp__0366384_PE548623_S4.JPG)
 </p>
 
 
