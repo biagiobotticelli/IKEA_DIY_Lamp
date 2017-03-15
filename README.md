@@ -11,6 +11,9 @@ It can be easily configured and manipulated using the Arduino IDE and it allows 
   <img src="https://github.com/biagiobotticelli/IKEA_DIY_Lamp/blob/master/images/nodemcu_devkit.jpg">
 </p>
 
+The scheme of the controlling circuit is:
+
+
 
 # The largest heading
 ## The second largest heading
