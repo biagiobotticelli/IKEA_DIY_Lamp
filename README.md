@@ -1,7 +1,7 @@
 # IKEA PS 2014 DIY Lamp
 During a visit in an IKEA store, I saw the PS 2014 lamp.
 <p align="center">
-  ![alt tag](http://www.ikea.com/us/en/images/products/ikea-ps-pendant-lamp__0366384_PE548623_S4.JPG)
+  <img src="http://www.ikea.com/us/en/images/products/ikea-ps-pendant-lamp__0366384_PE548623_S4.JPG">
 </p>
 
 
@@ -37,3 +37,12 @@ Numerated:
 1. James Madison
 2. James Monroe
 3. John Quincy Adams
+
+<p align="center">
+  <b>Some Links:</b><br>
+  <a href="#">Link 1</a> |
+  <a href="#">Link 2</a> |
+  <a href="#">Link 3</a>
+  <br><br>
+  <img src="http://s.4cdn.org/image/title/105.gif">
+</p>
