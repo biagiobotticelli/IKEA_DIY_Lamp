@@ -8,7 +8,7 @@ Being a Computer Science Engineer, the first thing that I thought was to find a 
 The first step that I made was to hack the hardware: to do this, I replaced the string with a stepper motor with a threaded rod. Then I added a microcontroller: in particular, I've used a **NodeMCU ESP8266** that is an *Open-source*, *Interactive*, *Programmable*, *Low cost* and *WI-FI enabled* integrated development kit.
 It can be easily configured and manipulated using the Arduino IDE and it allows to reduce the time to prototype the hardware.
 <p align="center">
-  <img src="https://github.com/biagiobotticelli/IKEA_DIY_Lamp/blob/master/images/nodemcu_devkit.jpgG">
+  <img src="https://github.com/biagiobotticelli/IKEA_DIY_Lamp/blob/master/images/nodemcu_devkit.jpg">
 </p>
 
 
