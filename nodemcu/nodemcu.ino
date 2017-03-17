@@ -1,23 +1,20 @@
 //#define BLYNK_PRINT Serial    // Comment this out to disable prints and save space
 
-#include <SimpleTimer.h>
-
 #include <Blynk.h>
 #include <BlynkSimpleEsp8266.h>
-
+#include <ESP8266WiFi.h>
 #include <AccelStepper.h>
 #include <MultiStepper.h>
-
-#include <ESP8266WiFi.h>
-
 #include <EEPROM.h>
+#include <SimpleTimer.h>
+
 
 // Auth Token
-char auth[] = "Your-Auth-Token";
+char auth[] = "bd6a8990a76142398073a1e6c4302ffe";
 
 // WiFi credentials
-char ssid[] = "Your-ssid";
-char pass[] = "Your-psw";
+char ssid[] = "TIM-91748717";
+char pass[] = "TZohjq92JiVr7bnbB08MWvRc";
 
 // Pins for Stepper Control
 const int sleepPin = D0;
@@ -31,7 +28,7 @@ const int relayPin = D4;
 const int ledPin = D6;
 
 // Max Speed and Speed of the Stepper
-int sp = 780;
+int sp = 800;
 int accel = 80000;
 
 // MIN and MAX values for Lamp Gap control
@@ -42,9 +39,8 @@ int prom_pos = 0;
 int light = 0;
 
 // Timer
-SimpleTimer timerOn;
-SimpleTimer timerOff;
-int t = 1700;
+SimpleTimer timer;
+int t = 1400;
 
 // Sectors of flash memory where to store the current position
 #define H_ADDRESS 500
@@ -59,54 +55,66 @@ bool isOn = false;
 AccelStepper stepper(1, stepPin, dirPin);
 
 void readData() {
+  
   // Retrieve from EEPROM the position
   byte high = EEPROM.read(H_ADDRESS);
   byte low = EEPROM.read(L_ADDRESS);
   prom_pos = word(high,low);
+
 }
 
 void saveData() {
-    // Write the position to EEPROM
+    
+  // Write the position to EEPROM
   EEPROM.write(H_ADDRESS,highByte(current));
   EEPROM.write(L_ADDRESS,lowByte(current));
   EEPROM.commit();
+
 }
 
 void moveLamp(int pos) {
+  
   // Turn ON the Stepper
   digitalWrite(sleepPin, HIGH);
+  
   if (pos == MAX) {
-    pos = 2385;
+    pos = MAX-15;
+  }
+  else if (pos == MIN) {
+    pos = MIN+10;
   }
   stepper.moveTo(pos);
   while (stepper.currentPosition() != pos) {
     stepper.run();
   }
+
   // Turn OFF the Stepper
   digitalWrite(sleepPin, LOW);
+  
 }
 
 void moveOn() {
   int in = current;
-  if (in > MAX) {
-    in = 2385;
+  if (in >= MAX) {
+    in = MAX-15;
   }
   if(current <= MAX) {
+    
     if (current<=1600) {
       moveLamp(in+800);
       current = in+800;
     }
     else {
-      moveLamp(2385);
+      moveLamp(in);
       current = MAX;
     }
     saveData();
     Blynk.virtualWrite(V0, current);
   }
-  
 }
 
 void moveOff() {
+  
   int in = current;
   if(in != MIN) {
     if(in > 800) {
@@ -114,15 +122,18 @@ void moveOff() {
       current = in-800;
     }
     else {
-      moveLamp(MIN);
+      moveLamp(MIN+10);
       current = MIN;
     }
     saveData();
     Blynk.virtualWrite(V0, current);
   }
+
 }
 
 void setup() {
+   
+  //Serial.begin(115200);
   EEPROM.begin(512);
 
   // Begin the Blynk session
@@ -160,9 +171,9 @@ void setup() {
 
   // Open the Lamp
   if(current != MAX) {
-    timerOn.setTimer(t, moveOn, 3);
+    timer.setTimer(t, moveOn, 3);
   }
-
+  
 }
 
 // Sync in case of disconnection
@@ -179,6 +190,7 @@ BLYNK_WRITE(V0) {
   if (isOn) {
     // read the value of STEPPER
     int input = param.asInt();
+    
     moveLamp(input);
     current = input;
     saveData();
@@ -193,7 +205,7 @@ BLYNK_WRITE(V1) {
   
   // read the value of button
   int l = param.asInt();
-      
+  
   // Light -> ON
   if(l == 1) {
     // Turn ON
@@ -201,9 +213,10 @@ BLYNK_WRITE(V1) {
   
     // Read position from EEPROM
     readData();
+    
     current = prom_pos;
     if(current != MAX) {
-      timerOn.setTimer(t, moveOn, 3);
+      timer.setTimer(t, moveOn, 3);
     }
     isOn = true;
   }
@@ -213,17 +226,17 @@ BLYNK_WRITE(V1) {
     // Turn OFF
     digitalWrite(relayPin, LOW);
     isOn = false;
- 
+  
     // CLOSE the Lamp
     if(current != MIN) {
-        timerOff.setTimer(t, moveOff, 3);
+        timer.setTimer(t, moveOff, 3);
     }
+    
   }
   
 }
 
 void loop() {
   Blynk.run();
-  timerOn.run();
-  timerOff.run();
+  timer.run();
 }
