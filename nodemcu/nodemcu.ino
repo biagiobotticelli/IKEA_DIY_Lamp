@@ -59,41 +59,22 @@ bool isOn = false;
 AccelStepper stepper(1, stepPin, dirPin);
 
 void readData() {
-  // DEBUG
-  //Serial.print("Reading POSITION from EEPROM...");
-  
   // Retrieve from EEPROM the position
   byte high = EEPROM.read(H_ADDRESS);
   byte low = EEPROM.read(L_ADDRESS);
   prom_pos = word(high,low);
-
-  // DEBUG
-  //Serial.print("EEPROM POS = ");
-  //Serial.print(prom_pos);
-  //Serial.println();
 }
 
 void saveData() {
-  // DEBUG
-  //Serial.print("Saving POS= ");
-  //Serial.print(current);
-  //Serial.println(" to EEPROM...");
-  
-  // Write the position to EEPROM
+    // Write the position to EEPROM
   EEPROM.write(H_ADDRESS,highByte(current));
   EEPROM.write(L_ADDRESS,lowByte(current));
   EEPROM.commit();
-  
-  //Serial.println("DONE!");
-  //Serial.println();
-
 }
 
 void moveLamp(int pos) {
-  
   // Turn ON the Stepper
   digitalWrite(sleepPin, HIGH);
-
   if (pos == MAX) {
     pos = 2385;
   }
@@ -101,7 +82,6 @@ void moveLamp(int pos) {
   while (stepper.currentPosition() != pos) {
     stepper.run();
   }
-  
   // Turn OFF the Stepper
   digitalWrite(sleepPin, LOW);
 }
@@ -112,18 +92,11 @@ void moveOn() {
     in = 2385;
   }
   if(current <= MAX) {
-    
-    //Serial.println("*** MOVE_ON ***");
-    
     if (current<=1600) {
-      //Serial.println("+800");
       moveLamp(in+800);
       current = in+800;
     }
     else {
-      
-      //Serial.println("MAX!");
-      
       moveLamp(2385);
       current = MAX;
     }
@@ -136,9 +109,6 @@ void moveOn() {
 void moveOff() {
   int in = current;
   if(in != MIN) {
-    
-    //Serial.println("*** MOVE_OFF ***");
-    
     if(in > 800) {
       moveLamp(in-800);
       current = in-800;
@@ -153,8 +123,6 @@ void moveOff() {
 }
 
 void setup() {
-  
-  //Serial.begin(115200);
   EEPROM.begin(512);
 
   // Begin the Blynk session
@@ -209,12 +177,8 @@ BLYNK_CONNECTED() {
 BLYNK_WRITE(V0) {
   // Allow the stepper only if the lamp is on
   if (isOn) {
-    
-    //Serial.println("*** STEP ***");
-    
     // read the value of STEPPER
     int input = param.asInt();
-      
     moveLamp(input);
     current = input;
     saveData();
@@ -237,7 +201,6 @@ BLYNK_WRITE(V1) {
   
     // Read position from EEPROM
     readData();
-    
     current = prom_pos;
     if(current != MAX) {
       timerOn.setTimer(t, moveOn, 3);
