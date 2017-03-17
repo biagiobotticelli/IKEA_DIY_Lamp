@@ -10,11 +10,11 @@
 
 
 // Auth Token
-char auth[] = "bd6a8990a76142398073a1e6c4302ffe";
+char auth[] = "Your_Auth_Token";
 
 // WiFi credentials
-char ssid[] = "TIM-91748717";
-char pass[] = "TZohjq92JiVr7bnbB08MWvRc";
+char ssid[] = "Your_WiFi_SSID";
+char pass[] = "Your_WiFi_PSW";
 
 // Pins for Stepper Control
 const int sleepPin = D0;
