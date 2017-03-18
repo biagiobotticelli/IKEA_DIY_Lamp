@@ -28,7 +28,7 @@ const int relayPin = D4;
 const int ledPin = D6;
 
 // Max Speed and Speed of the Stepper
-int sp = 800;
+int sp = 750;
 int accel = 80000;
 
 // MIN and MAX values for Lamp Gap control
@@ -40,7 +40,7 @@ int light = 0;
 
 // Timer
 SimpleTimer timer;
-int t = 1400;
+int t = 1600;
 
 // Sectors of flash memory where to store the current position
 #define H_ADDRESS 500
@@ -173,7 +173,7 @@ void setup() {
   if(current != MAX) {
     timer.setTimer(t, moveOn, 3);
   }
-  
+  isOn = true;
 }
 
 // Sync in case of disconnection
@@ -222,7 +222,7 @@ BLYNK_WRITE(V1) {
   }
   
   // Light -> OFF
-  else if (l== 0 && isOn){
+  else if (l==0 && isOn){
     // Turn OFF
     digitalWrite(relayPin, LOW);
     isOn = false;
