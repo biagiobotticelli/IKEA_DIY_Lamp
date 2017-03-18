@@ -40,7 +40,7 @@ int light = 0;
 
 // Timer
 SimpleTimer timer;
-int t = 1600;
+int t = 1700;
 
 // Sectors of flash memory where to store the current position
 #define H_ADDRESS 500
@@ -50,6 +50,7 @@ int t = 1600;
 // Flag 
 bool isFirstConnect = true;
 bool isOn = false;
+bool isReady = false;
 
 // Stepper Definition
 AccelStepper stepper(1, stepPin, dirPin);
@@ -111,6 +112,9 @@ void moveOn() {
     saveData();
     Blynk.virtualWrite(V0, current);
   }
+  if(current == MAX) {
+    isReady = true;
+  }
 }
 
 void moveOff() {
@@ -155,8 +159,8 @@ void setup() {
   if(Blynk.connected()) {
     // Lamp is connected -> LED ON
     digitalWrite(ledPin, HIGH);
-    Blynk.virtualWrite(V1,1);
   }
+  
   // Read position from EEPROM
   readData();
 
@@ -173,7 +177,7 @@ void setup() {
   if(current != MAX) {
     timer.setTimer(t, moveOn, 3);
   }
-  isOn = true;
+  
 }
 
 // Sync in case of disconnection
@@ -222,7 +226,7 @@ BLYNK_WRITE(V1) {
   }
   
   // Light -> OFF
-  else if (l==0 && isOn){
+  else if (l==0 && isReady){
     // Turn OFF
     digitalWrite(relayPin, LOW);
     isOn = false;
