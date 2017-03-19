@@ -3,17 +3,19 @@ During a visit in an IKEA store, I saw the PS 2014 lamp. It's a wonderful manual
 <p align="center">
   <img src="https://github.com/biagiobotticelli/IKEA_DIY_Lamp/blob/master/images/ikea-ps-pendant-lamp.JPG">
 </p>
-Being a Computer Science Engineer, the first thing that I thought was to find a solution to add remote control to the lamp!
+Since I'm a Computer Science Engineer, the first thing that I thought was to find a solution to add remote control to the lamp!
 
 The first step that I made was to hack the hardware: to do this, I replaced the string with a stepper motor with a threaded rod. Then I added a microcontroller: in particular, I've used a **NodeMCU ESP8266** that is an *Open-source*, *Interactive*, *Programmable*, *Low cost* and *WI-FI enabled* integrated development kit.
 It can be easily configured and manipulated using the Arduino IDE and it allows to reduce the time to prototype the hardware.
 <p align="center">
   <img src="https://github.com/biagiobotticelli/IKEA_DIY_Lamp/blob/master/images/nodemcu_devkit.jpg">
 </p>
+At the end of the configuration of the harware, I have the circuit that can be represented as:
 
-The scheme of the circuit is:
-
-
+The last thing to do was to design a firmware for the NodeMCU, using the Arduino IDE.
+The two critical parts were:
+1. *How to control the lamp;*
+2. *How to interact with the stepper motor.*
 
 # The largest heading
 ## The second largest heading
