@@ -51,8 +51,8 @@ The code is a *ready-to-work firmware* **ONLY IF** the project is **implemented 
 But it can be easy adapted according to the subjective purpose.
 
 ## Useful Links
-- My personal LinkedIn Profile: <a href="https://www.linkedin.com/in/biagio-botticelli-444b87105/"></a>
-- <a href="https://nodemcu.readthedocs.io/en/master/">NodeMCU Documentation;</a> |
-- <a href="http://www.blynk.cc">Blynk Web Page;</a> |
-- <a href="http://www.airspayce.com/mikem/arduino/AccelStepper/">AccelStepper Library Website;</a>
+- <a href="https://www.linkedin.com/in/biagio-botticelli-444b87105/">My personal LinkedIn Profile;</a>
+- <a href="https://nodemcu.readthedocs.io/en/master/">NodeMCU Documentation;</a>
+- <a href="http://www.blynk.cc">Blynk Web Page;</a>
+- <a href="http://www.airspayce.com/mikem/arduino/AccelStepper/">AccelStepper Library Website.</a>
 </p>
