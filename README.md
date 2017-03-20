@@ -20,7 +20,7 @@ The two critical parts were:
 1. *How to control the lamp;*
 2. *How to interact with the stepper motor.*
 
-### How to control the lamp
+#### How to control the lamp
 Since the **NodeMCU** boards allows to connect the lamp to my home Wi-Fi, I decided to interact with it using the **Blynk** mobile application (it's available both for Android and iOS).
 **Blynk** is extremely easy to use with Arduino IDE: once downloaded the *Blynk Library*, to connect the device to a network requires only 3 fields: the *Authentication Token* (given by the mobile app), the *Wi-Fi SSID* and the *Wi-Fi Password*.
 A very *simple sketch* could be:
@@ -42,7 +42,7 @@ void loop() {
 }
 ```
 
-### How to interact with the stepper motor
+#### How to interact with the stepper motor
 In order to *open/close* the lamp, I need to control the stepper motor.
 To do this, I've chosen the **AccelStepper** library which is an improvement of the basic *Arduino Stepper Library* since it supports *acceleration* and *deceleration*, a large variety of *stepper motors* and it also supports the *DRV8825 Driver Board* that I've chosen for the project. 
 
@@ -51,10 +51,8 @@ The code is a *ready-to-work firmware* **ONLY IF** the project is **implemented 
 But it can be easy adapted according to the subjective purpose.
 
 ## Useful Links
-<p align="center">
-  <a href="https://www.linkedin.com/in/biagio-botticelli-444b87105/">My personal LinkedIn Profile;</a> |
-  
-  <a href="https://nodemcu.readthedocs.io/en/master/">NodeMCU Documentation;</a> |
-  <a href="http://www.blynk.cc">Blynk Web Page;</a> |
-  <a href="http://www.airspayce.com/mikem/arduino/AccelStepper/">AccelStepper Library Website;</a>
+- My personal LinkedIn Profile: <a href="https://www.linkedin.com/in/biagio-botticelli-444b87105/"></a>
+- <a href="https://nodemcu.readthedocs.io/en/master/">NodeMCU Documentation;</a> |
+- <a href="http://www.blynk.cc">Blynk Web Page;</a> |
+- <a href="http://www.airspayce.com/mikem/arduino/AccelStepper/">AccelStepper Library Website;</a>
 </p>
