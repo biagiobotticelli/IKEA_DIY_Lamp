@@ -49,10 +49,12 @@ To do this, I've chosen the **AccelStepper** library which is an improvement of 
 ## Installation Instructions
 The code is a *ready-to-work firmware* **ONLY IF** the project is **implemented _exactly_ as the circuit diagram**.
 But it can be easy adapted according to the subjective purpose.
+To install the firmware, simply download it, open it using the Arduino IDE and load it into the NodeMCU board.
 
 ## Useful Links
 - <a href="https://www.linkedin.com/in/biagio-botticelli-444b87105/">My personal LinkedIn Profile;</a>
 - <a href="https://nodemcu.readthedocs.io/en/master/">NodeMCU Documentation;</a>
+- <a href="https://www.arduino.cc">Arduino website;</a>
 - <a href="http://www.blynk.cc">Blynk Web Page;</a>
 - <a href="http://www.airspayce.com/mikem/arduino/AccelStepper/">AccelStepper Library Website.</a>
 </p>
