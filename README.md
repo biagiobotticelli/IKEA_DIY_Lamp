@@ -11,6 +11,9 @@ It can be easily configured and manipulated using the Arduino IDE and it allows 
   <img src="https://github.com/biagiobotticelli/IKEA_DIY_Lamp/blob/master/images/nodemcu_devkit.jpg">
 </p>
 At the end of the configuration of the harware, I have the circuit that can be represented as:
+<p align="center">
+  <img src="https://github.com/biagiobotticelli/IKEA_DIY_Lamp/blob/master/images/Circuit.png">
+</p>
 
 The last thing to do was to design a firmware for the NodeMCU, using the Arduino IDE.
 The two critical parts were:
