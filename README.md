@@ -53,7 +53,7 @@ To install the firmware, simply download it, open it using the Arduino IDE and l
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=37uV71KeJrg
 " target="_blank"><img src="http://img.youtube.com/vi/37uV71KeJrg/0.jpg" 
-alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+alt="Demo" width="480" height="240" border="20" /></a>
 
 The Demo is uploaded on YouTube: https://www.youtube.com/watch?v=37uV71KeJrg
 
