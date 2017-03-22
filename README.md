@@ -53,13 +53,11 @@ To install the firmware, simply download it, open it using the Arduino IDE and l
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=37uV71KeJrg
 " target="_blank"><img src="http://img.youtube.com/vi/37uV71KeJrg/0.jpg" 
-alt="Demo" width="480" height="240" border="20" /></a>
-
-The Demo is uploaded on YouTube: https://www.youtube.com/watch?v=37uV71KeJrg
-
+alt="Demo" width="480" height="300" border="10" /></a>
 
 ## Useful Links
 - <a href="https://www.linkedin.com/in/biagio-botticelli-444b87105/">My personal LinkedIn Profile;</a>
+- <a href="https://www.youtube.com/watch?v=37uV71KeJrg">Demo on YouTube;</a>
 - <a href="https://nodemcu.readthedocs.io/en/master/">NodeMCU Documentation;</a>
 - <a href="https://www.arduino.cc">Arduino website;</a>
 - <a href="http://www.blynk.cc">Blynk Web Page;</a>
