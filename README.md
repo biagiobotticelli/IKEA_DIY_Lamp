@@ -51,6 +51,13 @@ The code is a *ready-to-work firmware* **ONLY IF** the project is **implemented 
 But it can be easy adapted according to the subjective purpose.
 To install the firmware, simply download it, open it using the Arduino IDE and load it into the NodeMCU board.
 
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=37uV71KeJrg
+" target="_blank"><img src="http://img.youtube.com/vi/37uV71KeJrg/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+
+The Demo is uploaded on YouTube: https://www.youtube.com/watch?v=37uV71KeJrg
+
+
 ## Useful Links
 - <a href="https://www.linkedin.com/in/biagio-botticelli-444b87105/">My personal LinkedIn Profile;</a>
 - <a href="https://nodemcu.readthedocs.io/en/master/">NodeMCU Documentation;</a>
